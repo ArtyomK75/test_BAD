@@ -81,7 +81,7 @@ public class Main {
 
         public int getMedianValue() {
             sortList();
-            int midIndex = values.size() / 2;
+            int midIndex = values.size() / 2 - 1;
             if (values.size() % 2 == 0) {
                 return (values.get(midIndex) + values.get(midIndex + 1)) / 2;
             }
@@ -96,7 +96,7 @@ public class Main {
             }
             return values.stream()
                     .mapToLong(Long::valueOf)
-                    .sum();
+                    .sum() / index;
         }
 
         private void sortList() {
@@ -119,7 +119,6 @@ public class Main {
                 if (mainList.size() < currentList.size()) {
                     mainList.clear();
                     mainList.addAll(currentList);
-                    Collections.copy(mainList, currentList);
                 }
                 currentList.clear();
             }
@@ -147,7 +146,6 @@ public class Main {
                 if (mainList.size() < currentList.size()) {
                     mainList.clear();
                     mainList.addAll(currentList);
-                    Collections.copy(mainList, currentList);
                 }
                 currentList.clear();
             }
